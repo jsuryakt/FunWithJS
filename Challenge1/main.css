@@ -1,0 +1,33 @@
+:root {
+  --key-highlight-color: #dada00;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.drum-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.drum-key {
+  padding: 1.5rem 2rem;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.key-clicked {
+  border: 5px solid var(--key-highlight-color);
+}
