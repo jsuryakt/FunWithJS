@@ -4,7 +4,7 @@ const keySound = new Map();
 keys.forEach((key) => {
   const keyText = key.firstChild.textContent.trim().toLowerCase();
   const soundText = key.querySelector("p").textContent.trim().toLowerCase();
-  keySound.set(keyText, "./sounds/" + soundText + ".wav");
+  keySound.set(keyText, "./assets/sounds/" + soundText + ".wav");
   key.addEventListener("click", () => {
     removeKeyClickedClass();
     addKeyClickedPlayAudio(key);
