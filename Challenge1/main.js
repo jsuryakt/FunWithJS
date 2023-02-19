@@ -1,54 +1,43 @@
 const keys = document.querySelectorAll(".drum-key");
-const keySound = new Map();
 
 keys.forEach((key) => {
-  const keyText = key.firstChild.textContent.trim().toLowerCase();
-  const soundText = key.querySelector("p").textContent.trim().toLowerCase();
-  keySound.set(keyText, "./assets/sounds/" + soundText + ".wav");
   key.addEventListener("click", () => {
-    removeKeyClickedClass();
-    addKeyClickedPlayAudio(key);
+    playAudioForKey(key.getAttribute("data-key"));
   });
+  key.addEventListener("transitionend", removeTransition);
 });
 
-function removeKeyClickedClass() {
-  keys.forEach((eachKey) => {
-    if (eachKey.classList.contains("key-clicked")) {
-      eachKey.classList.remove("key-clicked");
-    }
-  });
+function removeTransition(e) {
+  // many transition end will be fired border, box-shadow etc
+  if (e.propertyName !== "transform") {
+    return;
+  }
+  this.classList.remove("key-clicked");
 }
 
-function addKeyClickedPlayAudio(key) {
-  const keyText = key.firstChild.textContent.trim().toLowerCase();
-  key.classList.add("key-clicked");
-  playAudio(keySound.get(keyText));
-}
-
-function playAudio(pathToFile) {
-  const audio = new Audio(pathToFile);
-  audio.play();
+function playAudioForKey(key) {
+  const audioEle = document.querySelector(`audio[data-key="${key}"]`);
+  if (!audioEle) {
+    return;
+  }
+  audioEle.currentTime = 0; // rewind to start on multiple clicks
+  audioEle.play();
+  const keyEle = document.querySelector(`div[data-key="${key}"]`);
+  if (keyEle) {
+    keyEle.classList.add("key-clicked");
+  }
 }
 
 document.addEventListener(
   "keypress",
   (event) => {
-    const name = event.key;
-    // const code = event.code;
-    const clickedKey = name.toLowerCase();
-    if (keySound.has(clickedKey)) {
-      keys.forEach((eachKey) => {
-        if (eachKey.classList.contains("key-clicked")) {
-          eachKey.classList.remove("key-clicked");
-        }
-        console.log(eachKey);
-        if (
-          eachKey.firstChild.textContent.trim().toLowerCase() === clickedKey
-        ) {
-          addKeyClickedPlayAudio(eachKey);
-        }
-      });
+    // const keyName = event.key;
+    let keyCode = event.keyCode;
+    if (keyCode >= 97 && keyCode <= 122) {
+      // Check if the key code is for a lowercase letter
+      keyCode = keyCode - 32; // Convert to uppercase by subtracting 32 (the difference between the uppercase and lowercase ASCII codes)
     }
+    playAudioForKey(keyCode);
   },
   false
 );

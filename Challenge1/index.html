@@ -12,27 +12,37 @@
 <body>
     <div class="main-container">
         <header>
-            <h1>Challenge 1 - Drum Kit</h1>
+            <h1>Drum Kit</h1>
         </header>
         <div class="drum-section">
-            <div class="drum-key">A<p>boom</p>
+            <div class="drum-key" data-key="65">A<p>boom</p>
             </div>
-            <div class="drum-key">S<p>clap</p>
+            <div class="drum-key" data-key="83">S<p>clap</p>
             </div>
-            <div class="drum-key">D<p>hihat</p>
+            <div class="drum-key" data-key="68">D<p>hihat</p>
             </div>
-            <div class="drum-key">F<p>kick</p>
+            <div class="drum-key" data-key="70">F<p>kick</p>
             </div>
-            <div class="drum-key">G<p>tink</p>
+            <div class="drum-key" data-key="71">G<p>tink</p>
             </div>
-            <div class="drum-key">H<p>openhat</p>
+            <div class="drum-key" data-key="72">H<p>openhat</p>
             </div>
-            <div class="drum-key">J<p>ride</p>
+            <div class="drum-key" data-key="74">J<p>ride</p>
             </div>
-            <div class="drum-key">K<p>snare</p>
+            <div class="drum-key" data-key="75">K<p>snare</p>
             </div>
-            <div class="drum-key">L<p>tom</p>
+            <div class="drum-key" data-key="76">L<p>tom</p>
             </div>
+
+            <audio data-key="65" src="assets/sounds/boom.wav"></audio>
+            <audio data-key="83" src="assets/sounds/clap.wav"></audio>
+            <audio data-key="68" src="assets/sounds/hihat.wav"></audio>
+            <audio data-key="70" src="assets/sounds/kick.wav"></audio>
+            <audio data-key="71" src="assets/sounds/openhat.wav"></audio>
+            <audio data-key="72" src="assets/sounds/ride.wav"></audio>
+            <audio data-key="74" src="assets/sounds/snare.wav"></audio>
+            <audio data-key="75" src="assets/sounds/tink.wav"></audio>
+            <audio data-key="76" src="assets/sounds/tom.wav"></audio>
         </div>
     </div>
     <script src="./main.js"></script>

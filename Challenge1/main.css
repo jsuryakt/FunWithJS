@@ -33,7 +33,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 3rem;
-  transition: all 0.07s;
+  transition: all 0.1s;
 }
 
 .key-clicked {
