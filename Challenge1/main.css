@@ -15,19 +15,28 @@ body {
 }
 
 .drum-section {
+  margin: 10%;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+  align-items: center;
 }
 
 .drum-key {
-  padding: 1.5rem 2rem;
+  padding: 0.5rem 2rem;
   border: 2px solid black;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  transition: all 0.07s;
 }
 
 .key-clicked {
+  transform: scale(1.1);
   border: 5px solid var(--key-highlight-color);
 }

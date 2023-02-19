@@ -1,11 +1,13 @@
 const keys = document.querySelectorAll(".drum-key");
-const keyList = [];
+const keySound = new Map();
 
 keys.forEach((key) => {
-  keyList.push(key.innerHTML.toLowerCase());
+  const keyText = key.firstChild.textContent.trim().toLowerCase();
+  const soundText = key.querySelector("p").textContent.trim().toLowerCase();
+  keySound.set(keyText, "./sounds/" + soundText + ".wav");
   key.addEventListener("click", () => {
     removeKeyClickedClass();
-    addKeyClickedClass(key);
+    addKeyClickedPlayAudio(key);
   });
 });
 
@@ -17,11 +19,16 @@ function removeKeyClickedClass() {
   });
 }
 
-function addKeyClickedClass(key) {
+function addKeyClickedPlayAudio(key) {
+  const keyText = key.firstChild.textContent.trim().toLowerCase();
   key.classList.add("key-clicked");
+  playAudio(keySound.get(keyText));
 }
 
-// console.log(keyList);
+function playAudio(pathToFile) {
+  const audio = new Audio(pathToFile);
+  audio.play();
+}
 
 document.addEventListener(
   "keypress",
@@ -29,13 +36,16 @@ document.addEventListener(
     const name = event.key;
     // const code = event.code;
     const clickedKey = name.toLowerCase();
-    if (keyList.includes(clickedKey)) {
+    if (keySound.has(clickedKey)) {
       keys.forEach((eachKey) => {
         if (eachKey.classList.contains("key-clicked")) {
           eachKey.classList.remove("key-clicked");
         }
-        if (eachKey.innerHTML.toLowerCase() === clickedKey) {
-          addKeyClickedClass(eachKey);
+        console.log(eachKey);
+        if (
+          eachKey.firstChild.textContent.trim().toLowerCase() === clickedKey
+        ) {
+          addKeyClickedPlayAudio(eachKey);
         }
       });
     }
