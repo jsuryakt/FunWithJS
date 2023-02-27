@@ -13,12 +13,12 @@
 
 .hour {
   border-color: green;
-  width: 70px;
+  width: 100px;
 }
 
 .min {
   border-color: red;
-  width: 120px;
+  width: 160px;
 }
 
 .sec {
@@ -30,8 +30,28 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  border-width: 2px;
+  border-width: 4px;
   border-style: solid;
-  border-radius: 2px;
+  border-radius: 1rem;
   transform-origin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .clock {
+    height: 200px;
+    width: 200px;
+  }
+
+  .hour {
+    width: 50px;
+  }
+
+  .min {
+    width: 80px;
+  }
+
+  .sec {
+    width: 90px;
+  }
 }

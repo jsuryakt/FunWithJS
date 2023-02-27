@@ -1,27 +1,33 @@
-const sec = document.querySelector('.sec');
-const min = document.querySelector('.min');
-const hour = document.querySelector('.hour');
+const sec = document.querySelector(".sec");
+const min = document.querySelector(".min");
+const hour = document.querySelector(".hour");
 
 updateSecs();
 updateMins();
 updateHours();
 
 setInterval(updateSecs, 1000);
-setInterval(updateMins, 1000*60);
-setInterval(updateHours, 1000*60*60);
 
 function updateSecs() {
-    sec.style.transform = getRotateStyle(new Date().getSeconds());
+  const secs = new Date().getSeconds();
+  if (secs === 0) {
+    updateMins();
+  }
+  sec.style.transform = getRotateStyle(secs * 6);
 }
 
 function updateMins() {
-    min.style.transform = getRotateStyle(new Date().getMinutes());
+  const mins = new Date().getMinutes();
+  if (mins === 0) {
+    updateHours();
+  }
+  min.style.transform = getRotateStyle(mins * 6);
 }
 
 function updateHours() {
-    hour.style.transform = getRotateStyle(new Date().getHours());
+  hour.style.transform = getRotateStyle(new Date().getHours() * 5);
 }
 
 function getRotateStyle(time) {
-    return `rotate(${(time*6+270)%360}deg)`;
+  return `rotate(${(time + 270) % 360}deg)`;
 }
