@@ -25,7 +25,7 @@ function updateMins() {
 }
 
 function updateHours() {
-  hour.style.transform = getRotateStyle(new Date().getHours() * 5);
+  hour.style.transform = getRotateStyle(new Date().getHours() * 5 * 6);
 }
 
 function getRotateStyle(time) {
