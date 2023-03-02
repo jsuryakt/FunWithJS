@@ -13,6 +13,7 @@ function updateSecs() {
   if (secs === 0) {
     updateMins();
   }
+  // each second is 6 degrees, bcz 360/60 = 6
   sec.style.transform = getRotateStyle(secs * 6);
 }
 
@@ -21,13 +22,16 @@ function updateMins() {
   if (mins === 0) {
     updateHours();
   }
+  // each minute is 6 degrees, bcz 360/60 = 6
   min.style.transform = getRotateStyle(mins * 6);
 }
 
 function updateHours() {
-  hour.style.transform = getRotateStyle(new Date().getHours() * 5 * 6);
+  // each hour is 30 degrees, bcz 360/12 = 30
+  hour.style.transform = getRotateStyle(new Date().getHours() * 30);
 }
 
 function getRotateStyle(time) {
+  // to start from 0 degrees either we add 270 or negate 90, since we are starting from +90 horizontal position
   return `rotate(${(time + 270) % 360}deg)`;
 }
