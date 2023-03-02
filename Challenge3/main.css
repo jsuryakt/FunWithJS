@@ -1,0 +1,17 @@
+@import "../commons/css/common.css";
+
+:root {
+  --clr: rgb(255, 90, 90);
+  --margin: 10px;
+}
+
+#change {
+  background-color: var(--clr);
+  margin: var(--margin);
+  height: 70vh;
+  width: -webkit-fill-available;
+}
+
+.main-container {
+  gap: 1rem;
+}
