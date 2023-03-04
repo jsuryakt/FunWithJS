@@ -183,3 +183,49 @@ console.log(
 // 0 1 2 3 4 5 6
 // ['anson':2, 'dsouza':4]
 // 1 3
+
+function ourMap(callbackFn) {
+  const output = [];
+  for (let i = 0; i < this.length; i++) {
+    const curr = this[i];
+    output.push(callbackFn(curr));
+  }
+  return output;
+}
+
+function ourFilter(callbackFn) {
+  const filtered = [];
+  for (let i = 0; i < this.length; i++) {
+    const curr = this[i];
+    const ans = callbackFn(curr);
+    if (ans) {
+      filtered.push(curr);
+    }
+  }
+  return filtered;
+}
+
+function ourReduce(callbackFn, obj) {
+  for (let i = 0; i < this.length; i++) {
+    const curr = this[i];
+    obj = callbackFn(obj, curr);
+  }
+  return obj;
+}
+
+Array.prototype.ourMap = ourMap;
+Array.prototype.ourReduce = ourReduce;
+Array.prototype.ourFilter = ourFilter;
+
+console.log(inventors.ourMap((curr) => curr.year + 100));
+
+console.log(inventors.ourFilter((ele) => ele.year >= 1500 && ele.year < 1600));
+
+console.log(
+  inventors.ourReduce((acc, curr) => {
+    if (curr.year > 1500 && curr.year < 1600) {
+      acc.push(curr.first + " " + curr.last);
+    }
+    return acc;
+  }, [])
+);
