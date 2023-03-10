@@ -148,6 +148,19 @@ console.log(
   people.sort((person1, person2) =>
     person1.split(", ")[1].localeCompare(person2.split(", ")[1])
   )
+  // idx1 = 0;
+  // idx2 = 0;
+  // anson anson
+  // while(idx1 < str1.length() && idx2 < str2.length()) {
+  //   str1[idx1] < str2[idx2] {
+  //    return  -1;
+  //   } else >
+  //   return 1
+  //   else {
+  //     idx1++;
+  //     idx2++;
+  //   }
+  // return 0;
 );
 
 // 8. Reduce Exercise
@@ -177,7 +190,7 @@ console.log(
       prev.set(curr, 1);
     }
     return prev;
-  }, new Map())
+  }, 0)
 );
 // [1,2,3,4,5,5,6,456,457]
 // 0 1 2 3 4 5 6
@@ -213,9 +226,49 @@ function ourReduce(callbackFn, obj) {
   return obj;
 }
 
+function defaultCompare(a, b) {
+  return a.toString().localeCompare(b.toString());
+}
+
+function ourSort(callbackFn) {
+  if (callbackFn == undefined) {
+    callbackFn = defaultCompare;
+  }
+  if (this.length <= 1) {
+    return this;
+  }
+  const mid = this.length / 2;
+  const left = this.slice(0, mid);
+  const right = this.slice(mid);
+  return merge(left.ourSort(callbackFn), right.ourSort(callbackFn), callbackFn);
+}
+
+function merge(left, right, callbackFn) {
+  let idx1 = 0;
+  let idx2 = 0;
+  const out = [];
+  while (idx1 < left.length && idx2 < right.length) {
+    if (callbackFn(left[idx1], right[idx2]) < 0) {
+      out.push(left[idx1]);
+      idx1++;
+    } else {
+      out.push(right[idx2]);
+      idx2++;
+    }
+  }
+  while (idx1 < left.length) {
+    out.push(left[idx1++]);
+  }
+  while (idx2 < right.length) {
+    out.push(right[idx2++]);
+  }
+  return out;
+}
+
 Array.prototype.ourMap = ourMap;
 Array.prototype.ourReduce = ourReduce;
 Array.prototype.ourFilter = ourFilter;
+Array.prototype.ourSort = ourSort;
 
 console.log(inventors.ourMap((curr) => curr.year + 100));
 
@@ -229,3 +282,6 @@ console.log(
     return acc;
   }, [])
 );
+
+const sortThisArray = [20, 15, 10, 5];
+console.log(sortThisArray.ourSort((a, b) => b - a));
