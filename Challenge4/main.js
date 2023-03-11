@@ -1,5 +1,6 @@
 // Get your shorts on - this is an array workout!
 // ## Array Cardio Day 1
+const arrayMethods = document.querySelector("#array-methods");
 
 // Some data we can work with
 
@@ -62,43 +63,8 @@ const people = [
   "Biondo, Frank",
 ];
 
-// Array.prototype.filter()
-// 1. Filter the list of inventors for those who were born in the 1500's
-console.log(
-  inventors.filter((inventor) => inventor.year >= 1500 && inventor.year <= 1599)
-);
-
-// Array.prototype.map()
-// 2. Give us an array of the inventors first and last names
-console.log(inventors.map((inventor) => inventor.first + " " + inventor.last));
-
-// Array.prototype.sort()
-// 3. Sort the inventors by birthdate, oldest to youngest
-console.log(
-  inventors.sort((inventor1, inventor2) => inventor2.year - inventor1.year)
-);
-
-console.log(inventors);
-// Array.prototype.reduce()
-// 4. How many years did all the inventors live all together?
-console.log(
-  inventors.reduce((prevSum, inventor) => {
-    currInvestorAge = inventor.passed - inventor.year;
-    // console.log(`Sum till now = ${prevSum}, curr age = ${currInvestorAge}`);
-    return prevSum + currInvestorAge;
-  }, 0)
-);
-
-// 5. Sort the inventors by years lived
-console.log(
-  inventors.sort(
-    (inventor1, inventor2) =>
-      inventor1.passed - inventor1.year - (inventor2.passed - inventor2.year)
-  )
-);
-
-// 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+// got the list using document.querySelectorAll(".mw-category-group > ul > li > a").forEach((ele) => console.log(ele.innerText))
 const boulevards = [
   "Boulevards of Paris",
   "City walls of Paris",
@@ -140,32 +106,8 @@ const boulevards = [
   "Boulevard Voltaire",
   "Boulevard de la Zone",
 ];
-console.log(boulevards.filter((bolevard) => bolevard.includes("de")));
 
-// 7. sort Exercise
-// Sort the people alphabetically by last name
-console.log(
-  people.sort((person1, person2) =>
-    person1.split(", ")[1].localeCompare(person2.split(", ")[1])
-  )
-  // idx1 = 0;
-  // idx2 = 0;
-  // anson anson
-  // while(idx1 < str1.length() && idx2 < str2.length()) {
-  //   str1[idx1] < str2[idx2] {
-  //    return  -1;
-  //   } else >
-  //   return 1
-  //   else {
-  //     idx1++;
-  //     idx2++;
-  //   }
-  // return 0;
-);
-
-// 8. Reduce Exercise
-// Sum up the instances of each of these
-const data = [
+const vehicleTypes = [
   "car",
   "car",
   "truck",
@@ -182,20 +124,69 @@ const data = [
   "truck",
 ];
 
-console.log(
-  data.reduce((prev, curr) => {
-    if (prev.has(curr)) {
-      prev.set(curr, prev.get(curr) + 1);
-    } else {
-      prev.set(curr, 1);
-    }
-    return prev;
+appendToDocument("List of inventors", inventors);
+appendToDocument("List of people", people);
+appendToDocument("List of Boulevards", boulevards);
+appendToDocument("List of vehicle types", vehicleTypes);
+
+// Array.prototype.filter()
+appendToDocument(
+  "1. Filter the list of inventors for those who were born in the 1500's",
+  inventors.filter((inventor) => inventor.year >= 1500 && inventor.year <= 1599)
+);
+
+// Array.prototype.map()
+appendToDocument(
+  "2. Give us an array of the inventors first and last names",
+  inventors.map((inventor) => inventor.first + " " + inventor.last)
+);
+
+// Array.prototype.sort()
+appendToDocument(
+  "3. Sort the inventors by birthdate, oldest to youngest",
+  inventors.sort((inventor1, inventor2) => inventor2.year - inventor1.year)
+);
+
+// Array.prototype.reduce()
+appendToDocument(
+  "4. How many years did all the inventors live all together?",
+  inventors.reduce((prevSum, inventor) => {
+    currInvestorAge = inventor.passed - inventor.year;
+    return prevSum + currInvestorAge;
   }, 0)
 );
-// [1,2,3,4,5,5,6,456,457]
-// 0 1 2 3 4 5 6
-// ['anson':2, 'dsouza':4]
-// 1 3
+
+appendToDocument(
+  "5. Sort the inventors by years lived",
+  inventors.sort(
+    (inventor1, inventor2) =>
+      inventor1.passed - inventor1.year - (inventor2.passed - inventor2.year)
+  )
+);
+
+appendToDocument(
+  "6. Create a list of Boulevards in Paris that contain 'de' anywhere in the name",
+  boulevards.filter((bolevard) => bolevard.includes("de"))
+);
+
+appendToDocument(
+  "7. Sort the people alphabetically by last name",
+  people.sort((person1, person2) =>
+    person1.split(", ")[1].localeCompare(person2.split(", ")[1])
+  )
+);
+
+appendToDocument(
+  "8. Frequency of each vehicle type in the list",
+  vehicleTypes.reduce((prev, curr) => {
+    if (prev[curr]) {
+      prev[curr] = prev[curr] + 1;
+    } else {
+      prev[curr] = 1;
+    }
+    return prev;
+  }, {})
+);
 
 function ourMap(callbackFn) {
   const output = [];
@@ -205,6 +196,8 @@ function ourMap(callbackFn) {
   }
   return output;
 }
+
+appendToDocument("Created own map()", ourMap.toString());
 
 function ourFilter(callbackFn) {
   const filtered = [];
@@ -218,6 +211,8 @@ function ourFilter(callbackFn) {
   return filtered;
 }
 
+appendToDocument("Created own filter()", ourFilter.toString());
+
 function ourReduce(callbackFn, obj) {
   for (let i = 0; i < this.length; i++) {
     const curr = this[i];
@@ -225,6 +220,8 @@ function ourReduce(callbackFn, obj) {
   }
   return obj;
 }
+
+appendToDocument("Created own reduce()", ourReduce.toString());
 
 function defaultCompare(a, b) {
   return a.toString().localeCompare(b.toString());
@@ -265,6 +262,15 @@ function merge(left, right, callbackFn) {
   return out;
 }
 
+appendToDocument(
+  "Created own sort()",
+  ourSort.toString() +
+    "\n\n" +
+    defaultCompare.toString() +
+    "\n\n" +
+    merge.toString()
+);
+
 Array.prototype.ourMap = ourMap;
 Array.prototype.ourReduce = ourReduce;
 Array.prototype.ourFilter = ourFilter;
@@ -285,3 +291,22 @@ console.log(
 
 const sortThisArray = [20, 15, 10, 5];
 console.log(sortThisArray.ourSort((a, b) => b - a));
+
+function appendToDocument(question, answer) {
+  const detailsEle = document.createElement("details");
+  const questionEle = document.createElement("summary");
+  const answerEle = document.createElement("pre");
+
+  questionEle.innerText = question;
+
+  /** Because JSON.stringify converts \n to \\n we have to replace it back
+   * The regular expression /\\n/g matches all occurrences of \\n.
+   * The g flag stands for "global", which means that all occurrences in the string will be replaced, not just the first one.
+   * The result of the replace() method is a new string with all occurrences of \\n replaced with \n.
+   */
+  answerEle.innerHTML = JSON.stringify(answer, null, 2).replace(/\\n/g, "\n");
+
+  detailsEle.appendChild(questionEle);
+  detailsEle.appendChild(answerEle);
+  arrayMethods.append(detailsEle);
+}

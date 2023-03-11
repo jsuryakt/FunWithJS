@@ -1,4 +1,4 @@
-@import "../commons/css/common.css";
+@import "commons/css/common.css";
 
 #challenges {
   display: flex;
