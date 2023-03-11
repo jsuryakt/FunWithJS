@@ -11,8 +11,7 @@ body {
   gap: 1.5rem;
 }
 
-@media only screen and (max-width: 768px) {
-  html,
+/* @media only screen and (max-width: 768px) {
   body {
     font-size: 2rem;
   }
@@ -20,4 +19,4 @@ body {
   #array-methods {
     gap: 1rem;
   }
-}
+} */
