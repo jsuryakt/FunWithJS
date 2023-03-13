@@ -10,7 +10,7 @@
 }
 
 .clock {
-  background-image: url(../Challenge2/assets/clock-face.png);
+  background-image: url(assets/clock-face.png);
   position: relative;
   border: var(--clock-border-size) solid black;
   height: var(--clock-size);
