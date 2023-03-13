@@ -1,38 +1,47 @@
 @import "../commons/css/common.css";
 
+:root {
+  --clock-size: 400px;
+  --hour-hand-size: 100px;
+  --min-hand-size: 140px;
+  --sec-hand-size: 160px;
+  --hand-border-size: 4px;
+  --clock-border-size: 5px;
+}
+
 .clock {
-  background-image: url(../Challenge2/assets/clock-face-without-hands.png);
+  background-image: url(../Challenge2/assets/clock-face.png);
   position: relative;
-  border: 10px solid black;
-  height: 400px;
+  border: var(--clock-border-size) solid black;
+  height: var(--clock-size);
   border-radius: 50%;
-  width: 400px;
-  background-size: 400px 400px;
+  width: var(--clock-size);
+  background-size: var(--clock-size) var(--clock-size);
 }
 
 .hour {
   border-color: black;
-  width: 100px;
-  z-index: 3;
+  width: var(--hour-hand-size);
+  z-index: 1;
 }
 
 .min {
   border-color: black;
-  width: 160px;
+  width: var(--min-hand-size);
   z-index: 2;
 }
 
 .sec {
   border-color: var(--clock-red-color);
-  width: 180px;
-  z-index: 1;
+  width: var(--sec-hand-size);
+  z-index: 3;
 }
 
 .hand {
   position: absolute;
   top: 50%;
   left: 50%;
-  border-width: 4px;
+  border-width: var(--hand-border-size);
   border-style: solid;
   border-radius: 1rem;
   transform-origin: 0;
@@ -40,8 +49,8 @@
 
 .center-point {
   background: black;
-  width: 30px;
-  height: 30px;
+  width: calc(var(--clock-size) / 16);
+  height: calc(var(--clock-size) / 16);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -52,30 +61,12 @@
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
-  .clock {
-    height: 200px;
-    width: 200px;
-    background-size: 200px 200px;
-  }
-
-  .hour {
-    width: 50px;
-  }
-
-  .min {
-    width: 80px;
-  }
-
-  .sec {
-    width: 90px;
-  }
-
-  .hand {
-    border-width: 2px;
-  }
-
-  .center-point {
-    width: 15px;
-    height: 15px;
+  :root {
+    --clock-size: 200px;
+    --hour-hand-size: 50px;
+    --min-hand-size: 70px;
+    --sec-hand-size: 80px;
+    --hand-border-size: 2px;
+    --clock-border-size: 3px;
   }
 }
