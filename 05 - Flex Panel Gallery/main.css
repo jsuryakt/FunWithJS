@@ -1,0 +1,87 @@
+@import "../commons/css/common.css";
+
+html,
+body {
+  margin: 0;
+}
+
+.panels {
+  height: 100vh;
+  display: flex;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: space-around;
+  background-size: cover;
+  overflow: hidden;
+  transition: all 0.7s;
+  background-position: center;
+}
+
+.panel:hover {
+  transform: scale(1.03);
+  flex: 2;
+}
+.panel:focus {
+  transform: scale(1.03);
+  flex: 2;
+}
+
+.panel1 {
+  background-image: url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500);
+}
+.panel2 {
+  background-image: url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500);
+}
+.panel3 {
+  background-image: url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d);
+}
+.panel4 {
+  background-image: url(https://source.unsplash.com/ITjiVXcwVng/1500x1500);
+}
+.panel5 {
+  background-image: url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500);
+}
+
+.panel > * {
+  background: linear-gradient(45deg, #0808085c, transparent);
+  background-clip: text;
+  color: white;
+  font-size: 2rem;
+  transition: font-size 1s;
+}
+
+.panel:hover p:nth-child(2) {
+  font-size: 4rem;
+}
+.panel:focus p:nth-child(2) {
+  font-size: 4rem;
+}
+
+.panel p:nth-child(1) {
+  transform: translateY(-1000px);
+  transition: transform 0.5s;
+}
+
+.panel:hover p:nth-child(1) {
+  transform: translateY(0);
+}
+.panel:focus p:nth-child(1) {
+  transform: translateY(0);
+}
+
+.panel p:nth-child(3) {
+  transform: translateY(1000px);
+  transition: transform 0.5s;
+}
+
+.panel:hover p:nth-child(3) {
+  transform: translateY(0);
+}
+.panel:focus p:nth-child(3) {
+  transform: translateY(0);
+}
