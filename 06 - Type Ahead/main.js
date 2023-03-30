@@ -22,9 +22,10 @@ function matchCities() {
     .map((place) => {
       const matchCity = getHighlightedEle(place.city, this.value);
       const matchState = getHighlightedEle(place.state, this.value);
+      const matchPopulation = getHighlightedEle(place.population, this.value);
       return `<li>
     <span>${matchCity}, ${matchState}</span>
-    <span>${place.population}</span>
+    <span>${matchPopulation}</span>
     </li>`;
     })
     .join("");
@@ -33,16 +34,17 @@ function matchCities() {
 }
 
 function getHighlightedEle(placeStr, searchValue) {
-  const findPattern = new RegExp(searchValue, "gi");
-  return placeStr.replace(
-    findPattern,
-    `<span class="highlight">${searchValue}</span>`
-  );
+  const findPattern = new RegExp(`(${searchValue})`, "gi");
+  return placeStr.replace(findPattern, `<span class="highlight">$1</span>`);
 }
 
 function findCities(find) {
   const findPattern = new RegExp(find, "gi");
   return cities.filter((place) => {
-    return place.city.match(findPattern) || place.state.match(findPattern);
+    return (
+      place.city.match(findPattern) ||
+      place.state.match(findPattern) ||
+      place.population.match(findPattern)
+    );
   });
 }
