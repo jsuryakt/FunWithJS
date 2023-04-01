@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Cities Search</title>
-    <link rel="stylesheet" href="./main.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link rel="stylesheet" href="main.css">
 </head>
-
 <body>
     <nav class="navigation">
         <ul class="nav-pills">
@@ -15,11 +15,17 @@
           </li>
         </ul>
       </nav>
-      <div class="search-container">
-          <input type="text" id="search" placeholder="City">
-          <ul id="suggestions">
-              <li>Search for a city in India</li>
-            </ul>
+      <div class="main-container">
+          <div class="player">
+              <video width="500" height="300" class="video"></video>
+              <div class="controls">
+                  <button class="play-pause-btn">play</button>
+                  <input class="video-slider" type="range" min="0" max="10"/>
+                  <button class="volume-btn">+</button>
+                  <input class="volume-slider" type="range" min="0" max="10"/>
+                  <button class="video-size-btn">size</button>
+                </div>
+            </div>
         </div>
         <footer class="footer">
             <div class="footer-header">
@@ -51,7 +57,7 @@
             </a>
             <!-- <p class="footer-light">jsuryakt@gmail.com</p> -->
           </footer>
-    <script src="./main.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

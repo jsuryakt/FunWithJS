@@ -6,6 +6,7 @@
 .main-container {
   background: linear-gradient(yellow, white);
   height: 100vh;
+  margin: unset;
 }
 
 .inbox {

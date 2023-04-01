@@ -4,6 +4,9 @@
   --grey-color: #5d5d5d;
   --key-highlight-color: #dada00;
   --clock-red-color: #cd1820;
+  --primary-color: #3e3d57;
+  --secondary-color: #0058f0;
+  --dark-gray: #6b7280;
 }
 
 html,
@@ -18,8 +21,97 @@ p {
 }
 
 .main-container {
+  overflow: hidden;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* nav bar */
+.navigation {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  position: sticky;
+  top: 0;
+}
+
+.navigation:hover .back-btn {
+  opacity: 1;
+  scale: 1.1;
+  left: -15px;
+}
+
+.navigation .nav-pills {
+  text-align: center;
+  list-style: none;
+  margin: unset;
+  padding-inline-start: 0px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  box-sizing: border-box;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.back-btn {
+  /* To change any SVGs color https://stackoverflow.com/a/53336754/13345157 */
+  filter: invert(100%) sepia(0%) saturate(5007%) hue-rotate(88deg)
+    brightness(110%) contrast(96%);
+  opacity: 0;
+  position: absolute;
+  left: -5px;
+  transition: left 0.4s ease-in-out, scale 0.4s ease-in;
+}
+
+/* footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: -webkit-fill-available;
+  background-color: var(--primary-color);
+  padding: 1rem;
+  text-align: center;
+  color: white;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  margin-top: 4rem;
+}
+
+.footer .social-links {
+  padding-inline-start: 0px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-light {
+  text-decoration: none;
+  margin: 0.5rem 0rem;
+  font-weight: lighter;
+  color: var(--dark-gray);
+}
+
+.footer .footer-link {
+  color: white;
+  text-decoration: none;
 }

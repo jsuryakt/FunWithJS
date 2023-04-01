@@ -8,7 +8,7 @@
 #change {
   background-color: var(--clr);
   margin: var(--margin);
-  height: 70vh;
+  height: 40vh;
   width: -webkit-fill-available;
 }
 
