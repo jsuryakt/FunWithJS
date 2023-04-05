@@ -17,13 +17,16 @@
       </nav>
       <div class="main-container">
           <div class="player">
-              <video width="500" height="300" class="video"></video>
+              <video class="video" src="./assets/Nothing Is Lost (You Give Me Strength) (Official Lyric Video)-(1080p).mp4" width="800" poster="./assets/poster.avif"></video>
               <div class="controls">
-                  <button class="play-pause-btn">play</button>
-                  <input class="video-slider" type="range" min="0" max="10"/>
-                  <button class="volume-btn">+</button>
-                  <input class="volume-slider" type="range" min="0" max="10"/>
-                  <button class="video-size-btn">size</button>
+                  <button class="play-pause-btn">▶</button>
+                  <div class="volume">
+                    <button class="volume-btn">🔊</button>
+                    <input class="volume-slider" type="range" min="0" max="1" step="0.1"/>
+                  </div>
+                  <p class="video-time">:/:</p>
+                  <input class="video-slider" type="range" value="0" step="1"/>
+                  <button class="video-size-btn">⛶</button>
                 </div>
             </div>
         </div>

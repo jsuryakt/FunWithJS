@@ -3,38 +3,78 @@
 :root {
 }
 
+button {
+  all: unset;
+  color: white;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
 .player {
   position: relative;
 }
 .video {
+  max-width: 100%;
   background-color: black;
+}
+.video-time {
+  width: 100px;
+  color: white;
 }
 .video:hover + .controls,
 .controls:hover {
   opacity: 1;
 }
 .controls {
+  background: #00000045;
+  padding: 4px 12px;
   display: flex;
+  gap: 1rem;
   position: absolute;
-  top: 265px;
-  left: 70px;
+  transform: translate(-50%, -50%);
+  bottom: -8px;
+  left: 50%;
+  width: 95%;
   z-index: 5;
   opacity: 0;
   transition: opacity ease-in-out 0.3s;
+  /* justify-content: space-between; */
+  align-items: center;
+  flex-wrap: wrap;
 }
 .play-pause-btn {
+  width: 20px;
 }
 .video-slider {
+  flex: 1;
+  height: 2px;
 }
+
+.volume {
+  position: relative;
+}
+
+.volume-btn:hover + .volume-slider,
 .volume-btn:focus + .volume-slider,
-.volume-slider:active {
+.volume-slider:active,
+.volume-slider:hover {
   opacity: 1;
 }
+
 .volume-slider {
+  height: 2px;
   position: absolute;
+  top: -5px;
+  left: 50%;
   opacity: 0;
-  transform: rotate(270deg) translate(92px, 120px);
+  transform-origin: center left;
+  transform: rotate(270deg);
   transition: opacity ease-in-out 0.3s;
 }
+
 .video-size-btn {
+  /* position: absolute;
+  right: 0; */
 }
