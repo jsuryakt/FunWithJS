@@ -19,13 +19,13 @@ inputForMobileDevice();
 
 window.addEventListener("keyup", (e) => {
   keyLogger.push(e.key);
-  if (keyLogger.length > targetCode.length) {
+  if (keyLogger.length >= targetCode.length) {
+    if (keyLogger.join("").toLowerCase() === targetCode.toLowerCase()) {
+      magicFunction();
+    }
     keyLogger.shift();
   }
   console.log(keyLogger);
-  if (keyLogger.join("").toLowerCase() === targetCode.toLowerCase()) {
-    magicFunction();
-  }
 });
 
 function magicFunction() {
