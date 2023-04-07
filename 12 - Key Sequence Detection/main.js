@@ -17,8 +17,11 @@ function inputForMobileDevice() {
 }
 inputForMobileDevice();
 
-window.addEventListener("keyup", (e) => {
-  keyLogger.push(e.key);
+window.addEventListener("keyup", (e) => logKey(e.key));
+input.addEventListener("input", (e) => logKey(e.target.value.slice(-1)));
+
+function logKey(key) {
+  keyLogger.push(key);
   if (keyLogger.length >= targetCode.length) {
     if (keyLogger.join("").toLowerCase() === targetCode.toLowerCase()) {
       magicFunction();
@@ -26,7 +29,7 @@ window.addEventListener("keyup", (e) => {
     keyLogger.shift();
   }
   console.log(keyLogger);
-});
+}
 
 function magicFunction() {
   if (hero.classList.contains("magic")) {
