@@ -68,9 +68,11 @@ header {
 
 input {
   display: none;
-  height: 1rem;
+  height: 2rem;
   border-radius: 5px;
   border: 1px solid;
+  position: absolute;
+  top: 0;
 }
 
 #video {
