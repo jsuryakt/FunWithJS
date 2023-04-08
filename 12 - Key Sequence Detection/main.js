@@ -10,15 +10,12 @@ let keyLogger = [];
 const targetCode = "surya";
 console.log(screen.orientation.type);
 //simple hack to check for mobile device in potrait, if device is in landscape then it will fail
-function inputForMobileDevice() {
-  if (screen.orientation.type === "portrait-primary") {
-    input.style.display = "block";
-  }
+if (screen.orientation.type === "portrait-primary") {
+  input.addEventListener("input", (e) => logKey(e.target.value.slice(-1)));
+  showInputForMobile();
+} else {
+  window.addEventListener("keyup", (e) => logKey(e.key));
 }
-inputForMobileDevice();
-
-window.addEventListener("keyup", (e) => logKey(e.key));
-input.addEventListener("input", (e) => logKey(e.target.value.slice(-1)));
 
 function logKey(key) {
   keyLogger.push(key);
@@ -31,6 +28,10 @@ function logKey(key) {
   console.log(keyLogger);
 }
 
+function showInputForMobile() {
+  input.style.display = "block";
+}
+
 function magicFunction() {
   if (hero.classList.contains("magic")) {
     hero.classList.remove("magic");
@@ -39,7 +40,7 @@ function magicFunction() {
     stopBtn.style.display = "none";
     video.style.opacity = "0";
     header.style.bottom = "unset";
-    inputForMobileDevice();
+    showInputForMobile();
   } else {
     hero.classList.add("magic");
     stopBtn.style.display = "block";
