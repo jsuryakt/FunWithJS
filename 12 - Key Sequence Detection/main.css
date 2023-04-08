@@ -64,6 +64,8 @@ header {
 
 #stopBtn {
   display: none;
+  position: absolute;
+  top: 20%;
 }
 
 input {
