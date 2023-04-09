@@ -38,6 +38,7 @@ p {
   border-bottom-right-radius: 1rem;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 .navigation:hover .back-btn {

@@ -1,0 +1,26 @@
+@import "../commons/css/common.css";
+
+.align-right {
+  float: right;
+  transform: translateX(30%);
+}
+
+.align-left {
+  float: left;
+  transform: translateX(-30%);
+}
+
+.slide-in {
+  padding: 2rem;
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.footer {
+  position: unset;
+}
+
+.active {
+  opacity: 1;
+  transform: translateX(0%);
+}
