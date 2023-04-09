@@ -1,6 +1,10 @@
 const slideImages = document.querySelectorAll(".slide-in");
 
-window.addEventListener("scroll", () => {
+slideImages();
+
+window.addEventListener("scroll", () => slideImages);
+
+function slideImages() {
   slideImages.forEach((slideImage) => {
     const isHalfShown =
       slideImage.offsetTop + slideImage.offsetHeight / 2 <
@@ -14,4 +18,4 @@ window.addEventListener("scroll", () => {
       slideImage.classList.remove("active");
     }
   });
-});
+}
