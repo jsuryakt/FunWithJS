@@ -2,8 +2,6 @@ const slideImages = document.querySelectorAll(".slide-in");
 
 slideImagesFn();
 
-window.addEventListener("scroll", () => slideImagesFn);
-
 function slideImagesFn() {
   slideImages.forEach((slideImage) => {
     const isHalfShown =
@@ -19,3 +17,5 @@ function slideImagesFn() {
     }
   });
 }
+
+window.addEventListener("scroll", () => slideImagesFn());
