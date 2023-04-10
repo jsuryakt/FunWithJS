@@ -1,10 +1,10 @@
 const slideImages = document.querySelectorAll(".slide-in");
 
-slideImages();
+slideImagesFn();
 
-window.addEventListener("scroll", () => slideImages);
+window.addEventListener("scroll", () => slideImagesFn);
 
-function slideImages() {
+function slideImagesFn() {
   slideImages.forEach((slideImage) => {
     const isHalfShown =
       slideImage.offsetTop + slideImage.offsetHeight / 2 <
