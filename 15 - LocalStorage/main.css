@@ -1,0 +1,72 @@
+@import "../commons/css/common.css";
+
+:root {
+  --items-width: 200px;
+  --items-height: 400px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main-container {
+  height: 75vh;
+  background: url(./assets/food-background.avif);
+  background-size: cover;
+}
+
+.items {
+  max-height: var(--items-height);
+  overflow-y: overlay;
+  display: inline-block;
+  background-color: white;
+  /* justify-content: center; */
+  padding: unset;
+  border-radius: 1rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+}
+
+.item > label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item > input {
+  all: unset;
+}
+
+input[type="checkbox"]::before {
+  content: "🤤";
+}
+
+input[type="checkbox"]:checked:before {
+  content: "🥚";
+}
+
+.add-item {
+  display: flex;
+  gap: 1rem;
+}
+
+input[type="checkbox"]:active,
+.add-item > button:active {
+  scale: 0.95;
+}
+
+.items,
+.add-item-input {
+  width: var(--items-width);
+}
+
+.add-item > * {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: none;
+}
