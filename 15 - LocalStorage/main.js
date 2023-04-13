@@ -17,6 +17,12 @@ form.addEventListener("submit", (e) => {
     form.reset();
 });
 
+form.addEventListener("change", (e) => {
+    const currId = e.target.id;
+    items[currId].check = !items[currId].check;
+    updateLocalStorage();
+});
+
 function setItems() {
     if (items.length > itemsEle.childElementCount) {
         let newItems = "";
@@ -28,6 +34,10 @@ function setItems() {
                         </div>`;
         }
         itemsEle.innerHTML += newItems;
-        localStorage.setItem("items", JSON.stringify(items));
+        updateLocalStorage();
     }
+}
+
+function updateLocalStorage() {
+    localStorage.setItem("items", JSON.stringify(items));
 }
