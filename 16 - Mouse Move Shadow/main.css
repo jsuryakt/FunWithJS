@@ -1,0 +1,10 @@
+@import "../commons/css/common.css";
+
+.main-container {
+  overflow: unset;
+  height: 70vh;
+}
+
+#dance {
+  padding: 1rem;
+}
