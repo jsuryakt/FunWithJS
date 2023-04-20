@@ -1,0 +1,29 @@
+@import "../commons/css/common.css";
+
+.main-container {
+  height: 75vh;
+  background: linear-gradient(0.08turn, #3f87a6, #ebf8e1, #f69d3c);
+  background-size: cover;
+}
+
+.items {
+  max-height: 200px;
+  overflow-y: overlay;
+  display: inline-block;
+  background-color: white;
+  padding: unset;
+  border-radius: 1rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+}
+
+details {
+  min-width: 200px;
+  width: 50%;
+  text-align: center;
+}

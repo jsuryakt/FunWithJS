@@ -1,5 +1,5 @@
 const dance = document.querySelector("#dance");
-const moveDistance = 100;
+const moveDistance = 200;
 const danceWidth = dance.offsetWidth;
 const danceHeight = dance.offsetHeight;
 console.log(`danceWidth ${danceWidth} danceHeight ${danceHeight}`);
@@ -10,7 +10,7 @@ function moveBoxShadow(e) {
     const y = e.offsetY;
     const xWalk = Math.round((x / danceWidth) * moveDistance - (moveDistance / 2));
     const yWalk = Math.round((y / danceHeight) * moveDistance - (moveDistance / 2));
-    let boxShadow = `${xWalk}px ${yWalk}px 0 red`;
+    let boxShadow = `${xWalk}px ${yWalk}px red`;
     dance.style.boxShadow = boxShadow;
     console.log(`offsetX ${x} offsetY ${y} xWalk ${xWalk} yWalk ${yWalk}`);
 }
