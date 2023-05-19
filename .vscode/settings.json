@@ -1,0 +1,8 @@
+{
+  "liveServer.settings.https": {
+    "enable": true, //set it true to enable the feature.
+    "cert": "/Users/Jayasurya/Desktop/learning/server.crt", //full path of the certificate
+    "key": "/Users/Jayasurya/Desktop/learning/server.key", //full path of the private key
+    "passphrase": "surya"
+  }
+}
