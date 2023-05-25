@@ -1,0 +1,29 @@
+@import "../commons/css/common.css";
+
+.menu {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.menu li,
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+.highlight {
+  transition: all 0.3s;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: block;
+  padding: 5px;
+  border-radius: 16px;
+  background-color: black;
+  z-index: -1;
+}
+
+a:hover {
+  color: white;
+}
