@@ -19,6 +19,7 @@
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 100px;
 }
 
 .screenshots a {
@@ -42,5 +43,10 @@
 }
 
 .action {
-  margin: 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem;
 }
