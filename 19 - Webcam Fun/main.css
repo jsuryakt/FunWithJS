@@ -1,0 +1,46 @@
+@import "../commons/css/common.css";
+
+:root {
+  --shadow-effect: drop-shadow(2px 4px 6px black);
+  --opacity-effect: opacity(50%);
+  --black-white-effect: grayscale(100%);
+  /* --ghost-effect: opacity(40%); */
+}
+
+#main-video {
+  display: none;
+}
+
+#video-canvas {
+  cursor: pointer;
+}
+
+.screenshots {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.screenshots a {
+  padding: 1rem;
+}
+
+.screenshots a img {
+  max-width: 150px;
+}
+
+.action span {
+  cursor: pointer;
+  background-color: #eeeeee;
+  /* border: 5px solid black; */
+  border-radius: 16px;
+  padding: 0.5rem;
+}
+
+.action span:hover {
+  background-color: #dddddd;
+}
+
+.action {
+  margin: 2rem;
+}
